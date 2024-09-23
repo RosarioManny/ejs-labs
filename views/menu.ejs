@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+  <h1>Full Menu</h1>
+  <h2>Entrees</h2>
+  <ul>
+     <% menu.forEach((food, index) => { %>
+        <% if (food.category == "mains") {%>
+        <li> <br> <%= food.name %>&emsp;&emsp;|&emsp;$<%= food.price %>&emsp;
+            |&emsp;&emsp;⭐<%= food.rating %><br> <%= food.details %>
+        </li>
+     <% }}); %>
+    </ul>
+    <h2>Sides</h2>
+    <ul>
+        <% menu.forEach((food, index) => { %>
+            <% if (food.category == "sides") {%>
+            <li> <br> <%= food.name %>&emsp;&emsp;|&emsp;$<%= food.price %>&emsp;
+                |&emsp;&emsp;⭐<%= food.rating %><br> <%= food.details %>
+            </li>
+         <% }}); %>
+    <h2>Desserts</h2>
+    <ul>
+        <% menu.forEach((food, index) => { %>
+            <% if (food.category == "desserts") {%>
+            <li> <br> <%= food.name %>&emsp;&emsp;|&emsp;$<%= food.price %>&emsp;
+                |&emsp;&emsp;⭐<%= food.rating %><br> <%= food.details %>
+            </li>
+         <% }}); %>
+    </ul>
+</body>
+</html>
