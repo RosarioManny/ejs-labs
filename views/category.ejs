@@ -7,33 +7,13 @@
 </head>
 <body>
     <%- include('./partials/nav') %>
-  <h1>Desserts</h1>
+  <h1><%= menuCat %></h1>
   <ul>
-    <% if (req.params.category === "desserts") { %>
-     <% menu.forEach((food, index) => { %>
-        <% if (food.category == "desserts") {%>
+     <% menuItems.forEach((food, index) => { %>
         <li> <br> <%= food.name %>&emsp;&emsp;|&emsp;$<%= food.price %>&emsp;
             |&emsp;&emsp;⭐<%= food.rating %><br> <%= food.details %>
         </li>
-     <% }}) %>
-    <% }; %>
-    </ul>
-    <h2>Sides</h2>
-    <ul>
-        <% menu.forEach((food, index) => { %>
-            <% if (food.category == "sides") {%>
-            <li> <br> <%= food.name %>&emsp;&emsp;|&emsp;$<%= food.price %>&emsp;
-                |&emsp;&emsp;⭐<%= food.rating %><br> <%= food.details %>
-            </li>
-         <% }}); %>
-    <h2>Desserts</h2>
-    <ul>
-        <% menu.forEach((food, index) => { %>
-            <% if (food.category == "desserts") {%>
-            <li> <br> <%= food.name %>&emsp;&emsp;|&emsp;$<%= food.price %>&emsp;
-                |&emsp;&emsp;⭐<%= food.rating %><br> <%= food.details %>
-            </li>
-         <% }}); %>
+     <% }) %>
     </ul>
 </body>
 </html>

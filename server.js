@@ -48,17 +48,16 @@ const RESTAURANT = {
       }
     ]
   }
-
+  const menu = RESTAURANT.menu
 // vvv Pass RESTAURANT.menu [array] using local object ({}) to menu.ejs vvv
 app.get('/menu', (req, res) => {
-    const menu = RESTAURANT.menu
     res.render("menu.ejs", {menu})
 });
 
 app.get('/menu/:category', (req, res) => {
-    const menu = RESTAURANT.menu
-    // const menuCat = req.params.category
-    res.render("category.ejs", {menu})
+    const menuItems = menu.filter(item => item.category == req.params.category)
+    const menuCat = req.params.category
+    res.render("category.ejs", {menuItems, menuCat});
 })
 
 app.get('/', (req, res) => {
